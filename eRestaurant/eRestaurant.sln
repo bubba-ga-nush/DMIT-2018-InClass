@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website(1)", "http://localhost:50337", "{14CE8885-50F0-41EE-983C-531004D869BB}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website", "http://localhost:50337", "{14CE8885-50F0-41EE-983C-531004D869BB}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
@@ -25,13 +25,22 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website(1)", "http://localh
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eRestaurant.Framework", "eRestaurant.Framework\eRestaurant.Framework.csproj", "{6E642AE5-240A-4595-A53A-92B3BFDFFBBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{14CE8885-50F0-41EE-983C-531004D869BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{14CE8885-50F0-41EE-983C-531004D869BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14CE8885-50F0-41EE-983C-531004D869BB}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{14CE8885-50F0-41EE-983C-531004D869BB}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{6E642AE5-240A-4595-A53A-92B3BFDFFBBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E642AE5-240A-4595-A53A-92B3BFDFFBBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E642AE5-240A-4595-A53A-92B3BFDFFBBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E642AE5-240A-4595-A53A-92B3BFDFFBBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
