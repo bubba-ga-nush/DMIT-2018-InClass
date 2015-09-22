@@ -12,6 +12,10 @@ namespace eRestaurant.Framework.DAL
     // access our Data Access Layer (they will have to go through our BLL to do stuff)
     internal class RestaurantContext : DbContext
     {
+        public RestaurantContext() : base("DefaultConnection")
+        {
+
+        }
         // One property for each Table/Entity in the database
         public DbSet<MenuCategory> MenuCategories { get; set; }
         public DbSet<Item> Items { get; set; }
