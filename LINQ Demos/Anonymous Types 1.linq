@@ -8,6 +8,7 @@
   </Connection>
 </Query>
 
+// Anonymous Types 1.linq
 from food in Items
 where food.MenuCategory.Description == "Entree" &&  food.Active
 orderby food.CurrentPrice descending
