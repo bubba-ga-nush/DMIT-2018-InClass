@@ -26,13 +26,31 @@
 
         <ItemTemplate>
             <div>
+                <asp:LinkButton runat="server" CommandName="Edit"
+                    ID="EditButton">
+                    Edit 
+                    <span class="glyphicon glyphicon-plus"></span>
+                </asp:LinkButton>
+                &nbsp;&nbsp;
+                <asp:LinkButton runat="server" CommandName="Delete"
+                    ID="DeleteButton">
+                    Delete
+                    <span class="glyphicon glyphicon-trash"></span>
+                </asp:LinkButton>
+
                 <asp:CheckBox Checked='<%# Eval("Active") %>'
                     runat="server" ID="ActiveCheckBox"
                     Enabled="false" Text="Active" />
                 &mdash;
+                <asp:Label ID="EventCodeLabel" runat="server" 
+                    AssociatedControlID="EventCodeData"
+                    CssClass="control-label">Event Code</asp:Label>
                 <asp:Label ID="EventCodeData" runat="server"
                     Text='<%# Eval("EventCode") %>' />
                 &mdash;
+                 <asp:Label ID="EventDescriptionLabel" runat="server" 
+                    AssociatedControlID="DescriptionData"
+                    CssClass="control-label">Description</asp:Label>
                 <asp:Label ID="DescriptionData" runat="server"
                     Text='<%# Eval("Description") %>' />
             </div>
