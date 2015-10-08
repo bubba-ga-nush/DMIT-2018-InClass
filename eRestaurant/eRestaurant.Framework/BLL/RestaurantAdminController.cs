@@ -16,6 +16,7 @@ namespace eRestaurant.Framework.BLL
     {
         //The ObjectDataSource control will do the background communication for CRUD
 
+        #region Manage Special Events (CRUD)
         // Allows the ObjectDataSource to see the method as something we can SELECT from
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<SpecialEvent> ListAllSpecialEvents()
@@ -82,5 +83,6 @@ namespace eRestaurant.Framework.BLL
                 context.SaveChanges();
             }
         }
+        #endregion
     }
 }
