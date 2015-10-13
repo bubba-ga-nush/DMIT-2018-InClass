@@ -4,16 +4,27 @@
     <div class="row col-md-12">
         <h1>Our Menu Items</h1>
         <asp:Repeater ID="MenuItemRepeater" runat="server"
-            DataSourceID="MenuItemDataSource">
+            DataSourceID="MenuItemDataSource"
+            ItemType="eRestaurant.Framework.Entities.DTOs.CategoryDTO">
             <ItemTemplate>
                 <div>
-                    <%# ((decimal)Eval("CurrentPrice")).ToString("C") %>
-                    &mdash;
-                    <%# Eval("Description") %> 
-                    &ndash;
-                    <%# Eval("MenuCategory.Description") %>
-                    &mdash;
-                    <%# Eval("Calories") %>
+                    <img src="http://placehold.it/150x100/" />
+                    <%# Item.Description %> 
+                    <asp:Repeater ID="ItemDetailRepeater" runat="server"
+                        DataSource="<%# Item.MenuItems %>"
+                        ItemType="eRestaurant.Framework.Entities.DTOs.MenuItemDTO">
+                        <ItemTemplate>
+                            <div>
+                                <%# Item.Description %>
+                                &mdash;
+                                <%# Item.Calories %>
+                                &mdash;
+                                <%# Item.Price.ToString("C") %>
+                                <br />
+                                <%# Item.Comment %>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
             </ItemTemplate>
             <SeparatorTemplate>
