@@ -7,6 +7,7 @@ using System.ComponentModel; // comes iwth Entity Framework
 using eRestaurant.Framework.DAL;
 using eRestaurant.Framework.Entities;
 using eRestaurant.Framework.Entities.POCOs;
+using eRestaurant.Framework.Entities.DTOs;
 
 namespace eRestaurant.Framework.BLL
 {
@@ -27,6 +28,38 @@ namespace eRestaurant.Framework.BLL
                              };
                 return result.ToList();
             }
+        }
+    
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<DailyReservation> ListUpcomingReservations(string eventCode)
+        {
+            using (var context = new RestaurantContext())
+            {
+                var result = from eachRow in context.Reservations
+                             where eachRow.ReservationStatus == "B" // use "B" in Visual Studio
+                             // TBA - && eachRow has the correct EventCode
+                             orderby eachRow.ReservationDate
+                             // select eachRow
+                             group eachRow by new { eachRow.ReservationDate.Month, eachRow.ReservationDate.Day }
+                                 into dailyReservation
+                                 select new DailyReservation() // Create a DTO class called DailyReservation
+                                {
+                                    Month = dailyReservation.Key.Month,
+                                    Day = dailyReservation.Key.Day,
+                                    Reservations = from booking in dailyReservation
+                                                   select new Booking() //Create a Booking POCO class
+                                                   {
+                                                       Name = booking.CustomerName,
+                                                       Time = booking.ReservationDate.TimeOfDay,
+                                                       NumberInParty = booking.NumberInParty,
+                                                       Phone = booking.ContactPhone,
+                                                       Event = booking.SpecialEvent.Description
+                                                   }
+                                };
+                return result.ToList();
+            }
+
+            
         }
     }
 }
