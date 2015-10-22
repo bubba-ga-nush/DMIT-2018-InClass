@@ -8,7 +8,7 @@
                  SelectMethod="ListActiveEvents" 
                  TypeName="eRestaurant.Framework.BLL.ReservationsController">
              </asp:ObjectDataSource>
-             <asp:Label ID="EventDropDownLabel" runat="server" Text="Events" AssociatedControlID="EventsRadioButton"></asp:Label>
+            
              <asp:RadioButtonList ID="ActiveEventsRadioButtonList" runat="server" DataSourceID="ActiveEventsDataSource"
                   DataTextField="Description" DataValueField="Code" AppendDataBoundItems="true" RepeatDirection="Horizontal" RepeatLayout="Flow">
                  <asp:ListItem Value="All" Selected="True">All Events</asp:ListItem>
@@ -23,7 +23,11 @@
                      Month: <%# Item.Month %>
                      Day: <%# Item.Day %>
                  </ItemTemplate>
+                 <SeparatorTemplate>
+                     </br>
+                 </SeparatorTemplate>
              </asp:Repeater>
+
              <asp:ObjectDataSource ID="DailyReservationsDataSource" runat="server" 
                  OldValuesParameterFormatString="original_{0}" SelectMethod="ListUpcomingReservations" 
                  TypeName="eRestaurant.Framework.BLL.ReservationsController">
