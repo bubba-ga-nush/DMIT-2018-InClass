@@ -14,21 +14,22 @@ namespace eRestaurant.Framework.BLL.Security
     {
         #region Constructor(s)
         public RoleManager()
-                : base(new RoleStore<IdentityRole>(new ApplicationDbContext()))
-            {
-            }
+            : base(new RoleStore<IdentityRole>(new ApplicationDbContext()))
+        {
+        }
         #endregion
 
         #region Custom methods
         public void AddDefaultRoles()
         {
-            foreach(string roleName in SecurityRoles.DefaultSecurityRoles)
+            foreach (string roleName in SecurityRoles.DefaultSecurityRoles)
             {
                 // Check if it exists
                 if (!Roles.Any(r => r.Name.Equals(roleName)))
                     this.Create(new IdentityRole(roleName));
             }
         }
+
         #endregion
     }
 }

@@ -8,7 +8,7 @@ namespace eRestaurant.Framework.Entities.Security
 {
     internal static class SecurityRoles
     {
-        public const string WebsiteAdmins = "WebsiteAdmin";
+        public const string WebsiteAdmins = "WebsiteAdmins";
         public const string RegisteredUsers = "RegisteredUsers";
         public const string Staff = "Staff";
         public static List<string> DefaultSecurityRoles
