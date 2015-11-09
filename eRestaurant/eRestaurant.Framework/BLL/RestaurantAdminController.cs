@@ -74,12 +74,12 @@ namespace eRestaurant.Framework.BLL
             {
                 // Add the item to the dbContext
                 var added = context.SpecialEvents.Add(item);
-                // p.s - we aren't going to do anything with the variable 'added'
-                // Just be aware that the Add() method will return newly added
-                // object. (This can be useful in other situation, which we will
-                // see later)
+                // p.s. - we aren't really going to do anything with the variable 'added'
+                // I just want you to be aware that the Add() method will return the
+                // newly added object. (This can be useful in other situations, which
+                // we will see later.)
 
-                // Save the changes to teh database
+                // Save the changes to the database
                 context.SaveChanges();
             }
         }

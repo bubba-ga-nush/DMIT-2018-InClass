@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ManageSpecialEvents.aspx.cs" Inherits="Admin_ManageSpecialEvents" %>
 
+<%@ Register Src="~/UserControls/MessageUserControl.ascx" TagPrefix="my" TagName="MessageUserControl" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <div class="row col-md-12">
         <h1>Manage Special Events
@@ -17,7 +20,8 @@
             DeleteMethod="DeleteSpecialEvent"
             InsertMethod="AddSpecialEvent" OnDeleted="ProcessExceptions" OnInserted="ProcessExceptions" OnUpdated="ProcessExceptions"></asp:ObjectDataSource>
 
-        <asp:Label ID="MessageLabel" runat="server"></asp:Label>
+        <my:MessageUserControl runat="server" ID="MessageUserControl" />
+        <%--<asp:Label ID="MessageLabel" runat="server"></asp:Label>--%>
     <%--<asp:GridView ID="SpecialEventsGridView" runat="server"
         DataSourceID="SpecialEventsDataSource"></asp:GridView>--%>
     <asp:ListView ID="SpecialEventsListView" runat="server"
