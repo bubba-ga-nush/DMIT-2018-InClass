@@ -21,7 +21,7 @@ public partial class Staff_SplitBill : System.Web.UI.Page
     {
         var controller = new WaiterController();
         var data = controller.GetBill(int.Parse(ActiveBills.SelectedValue));
-        BillToSplit.Vaule = data.BillID.ToSring();
+        BillToSplit.Value = data.BillID.ToString();
 
         // Set the original bill items
         OriginalBillItems.DataSource = data.Items;
@@ -120,7 +120,7 @@ public partial class Staff_SplitBill : System.Web.UI.Page
             var qtyLabel = row.FindControl("Quantity") as Label;
             var nameLabel = row.FindControl("ItemName") as Label;
             var priceLabel = row.FindControl("Price") as Label;
-            originalItems.Add(new OrderItem()
+            newBillItems.Add(new OrderItem()
             {
                 ItemName = nameLabel.Text,
                 Quantity = int.Parse(qtyLabel.Text),
